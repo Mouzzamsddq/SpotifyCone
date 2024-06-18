@@ -5,17 +5,16 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.siddiqui.spotifyclone.R
+import com.siddiqui.spotifyclone.exoplayer.MusicServiceConnection
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
-import javax.inject.Singleton
+import dagger.hilt.components.SingletonComponent
 
 @Module
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 object AppModule {
-    @Singleton
     @Provides
     fun provideGlideInstance(
         @ApplicationContext context: Context,
@@ -25,4 +24,9 @@ object AppModule {
             .error(R.drawable.ic_image)
             .diskCacheStrategy(DiskCacheStrategy.DATA),
     )
+
+    @Provides
+    fun provideMusicServiceConnection(
+        @ApplicationContext context: Context,
+    ) = MusicServiceConnection(context)
 }

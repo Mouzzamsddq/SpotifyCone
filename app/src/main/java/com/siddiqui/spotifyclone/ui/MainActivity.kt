@@ -1,8 +1,9 @@
-package com.siddiqui.spotifyclone
+package com.siddiqui.spotifyclone.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.RequestManager
+import com.siddiqui.spotifyclone.R
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
